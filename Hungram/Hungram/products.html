@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f0f0f0; /* Fallback color */
+            animation: changeBackground 8s infinite alternate; /* Change background color animation */
+        }
+
+        @keyframes changeBackground {
+            0% {
+                background-color: #f0f0f0;
+            }
+
+            100% {
+                background-color: #e6e6ff; /* Change to a light color */
+            }
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-decoration: underline; /* Underline the heading */
+        }
+
+        .product-list {
+            list-style-type: none; /* Remove default list style */
+            padding: 0;
+            margin: 0;
+        }
+
+        .product {
+            display: inline-block;
+            margin: 20px;
+            vertical-align: top;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 200px;
+            height: 200px; /* Set a fixed size for all images */
+            object-fit: cover; /* Ensure images maintain aspect ratio and cover the specified dimensions */
+            border-radius: 10px 10px 0 0;
+            cursor: pointer; /* Change cursor to pointer */
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product h3 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .product p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .order-heading {
+            margin-top: 40px;
+            color: #007bff;
+            font-size: 20px;
+        }
+
+        .order-number {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        /* Popup box styles */
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .popup-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #333;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Products Made By Our Children</h1>
+
+        <ul class="product-list">
+            <li class="product">
+                <img src="images/download (5).jpeg" alt="Product 1" onclick="openPopup('images/download (5).jpeg')">
+                <div class="product-info">
+                    <h3>Handmade Doll</h3>
+                    <p>$10</p>
+                </div>
+            </li>
+
+            <li class="product">
+                <img src="images/hand-craft-decoration-items.jpg" alt="Product 2" onclick="openPopup('images/hand-craft-decoration-items.jpg')">
+                <div class="product-info">
+                    <h3>Clay Toys</h3>
+                    <p>$15</p>
+                </div>
+            </li>
+
+            <li class="product">
+                <img src="images/0baeece4474ea1a7a091daadbedde463.jpg" alt="Product 3" onclick="openPopup('images/0baeece4474ea1a7a091daadbedde463.jpg')">
+                <div class="product-info">
+                    <h3>Tote Bag</h3>
+                    <p>$10</p>
+                </div>
+            </li>
+        </ul>
+
+        <div class="order-heading">
+            <p>Call <span class="order-number">+919007491468</span> to place your order!!</p>
+        </div>
+    </div>
+
+    <!-- Popup box -->
+    <div id="popup" class="popup" onclick="closePopup()">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <img id="popup-image" src="" alt="Popup Image">
+        </div>
+    </div>
+
+    <script>
+        // Open popup function
+        function openPopup(imageSrc) {
+            var popup = document.getElementById("popup");
+            var popupImage = document.getElementById("popup-image");
+            popupImage.src = imageSrc;
+            popup.style.display = "block";
+        }
+
+        // Close popup function
+        function closePopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotions</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Contact Us for Promotions</h1>
+        <p>Fill out the form below with your requirements and budget, and we'll get back to you!</p>
+        <form id="contactForm">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="text" id="organization" name="organization" placeholder="Organization" required>
+            <textarea id="requirements" name="requirements" rows="4" placeholder="Requirements" required></textarea>
+            <input type="number" id="budget" name="budget" placeholder="Total Budget (in USD)" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript function to handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Get form values
+            var name = document.getElementById('name').value;
+            var organization = document.getElementById('organization').value;
+            var requirements = document.getElementById('requirements').value;
+            var budget = document.getElementById('budget').value;
+
+             // Validate budget input
+             if (!/^\d+$/.test(budget)) {
+                alert('Please enter a numerical value for the budget.');
+                return;
+            }
+
+            // Prepare email body
+            var emailBody = 'Name: ' + name + '\n' +
+                            'Organization: ' + organization + '\n' +
+                            'Requirements: ' + requirements + '\n' +
+                            'Total Budget (in USD): ' + budget;
+
+            // Send email
+            window.location.href = 'mailto:antareep0906@gmail.com?subject=Promotion Inquiry&body=' + encodeURIComponent(emailBody);
+        });
+    </script>
+</body>
+
+</html>
